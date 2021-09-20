@@ -9,7 +9,7 @@ trigger:
       - main
  
 pool:
-  vmImage: 'Windows'
+  vmImage: 'vs2017-win2016'
  
 variables:
   ImageName: '172054/cartservice:$(Build.BuildId)'
