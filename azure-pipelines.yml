@@ -34,7 +34,7 @@ stages:
     - task: VSTest@2
       inputs:
        testSelector: 'testAssemblies'
-       testAssemblyVer2: |
+       testAssemblyVer2: 
        **\*test*.dll
        !**\*TestAdapter.dll
        !**\obj\**
