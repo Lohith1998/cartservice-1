@@ -38,7 +38,7 @@ stages:
        **\*test*.dll
        !**\*TestAdapter.dll
        !**\obj\**
-       searchFolder: '$(System.DefaultWorkingDirectory)'
+       searchFolder: '$(C:\Users\LOHITH\Juice-shop\cartservice-1)'
        codeCoverageEnabled: true
            
     - task: Docker@1
