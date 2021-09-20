@@ -1,5 +1,6 @@
 name : Docker-CI
 
+
 trigger:
   branches:
     include:
@@ -19,8 +20,14 @@ stages:
     displayName: Build and push Docker image
     steps:
   
-    - task: SonarQubeAnalyze@4
-
+    
+    - task: VSTest@2
+      inputs:
+        testSelector: 'testRun'
+        searchFolder: '$(System.DefaultWorkingDirectory)'
+        codeCoverageEnabled: true
+        testRunTitle: 'testing runs'
+        rerunFailedTests: false
            
     - task: Docker@1
       displayName: 'Build the Docker image'
