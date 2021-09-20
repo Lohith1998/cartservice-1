@@ -1,20 +1,9 @@
 name : Docker-CI
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-
-
 
 trigger:
   branches:
     include:
-      - master
+      - main
  
 pool:
   vmImage: 'ubuntu-latest'
