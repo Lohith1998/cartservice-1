@@ -1,4 +1,7 @@
 name : Docker-CI
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 
 
 trigger:
@@ -21,13 +24,9 @@ stages:
     steps:
   
     
-    - task: VSTest@2
+    - task: SonarQubePublish@4
       inputs:
-        testSelector: 'testRun'
-        searchFolder: '$(System.DefaultWorkingDirectory)'
-        codeCoverageEnabled: true
-        testRunTitle: 'testing runs'
-        rerunFailedTests: false
+        pollingTimeoutSec: '300'
            
     - task: Docker@1
       displayName: 'Build the Docker image'
