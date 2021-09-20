@@ -1,4 +1,13 @@
 name : Docker-CI
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
 
 
 
@@ -22,9 +31,15 @@ stages:
     steps:
   
     
-    - task: SonarQubePublish@4
+    - task: VSTest@2
       inputs:
-        pollingTimeoutSec: '300'
+       testSelector: 'testAssemblies'
+       testAssemblyVer2: |
+       **\*test*.dll
+       !**\*TestAdapter.dll
+       !**\obj\**
+       searchFolder: '$(System.DefaultWorkingDirectory)'
+       codeCoverageEnabled: true
            
     - task: Docker@1
       displayName: 'Build the Docker image'
